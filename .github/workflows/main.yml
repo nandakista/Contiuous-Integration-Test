@@ -1,10 +1,10 @@
-name: CI
+name: Android CI -> v1
 
 on:
   push:
-    branches: [ main ]
+    branches: [ v1 ]
   pull_request:
-    branches: [ main ]
+    branches: [ v1 ]
 
   workflow_dispatch:
 
@@ -34,7 +34,7 @@ jobs:
       - name: Run lint Test
         run: ./gradlew lint test
       
-      - name: Android Report Action
+      - name: Run Test and Unit Test
         uses: doanpt/AndroidTestReportAction@v1.1
       
       - name: Build with Gradle
@@ -44,4 +44,4 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with: 
           name: app
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/debug/app-debugg.apk
